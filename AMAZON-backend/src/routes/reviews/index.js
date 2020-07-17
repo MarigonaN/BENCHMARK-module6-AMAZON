@@ -20,22 +20,6 @@ studentRouter.get("/:id", async (req, res)=>{
     res.send(response.rows[0])
 })
 
-// studentRouter.post("/checkEmail", async(req, res)=>{
-//     const checkEmail = await db.query(`SELECT _id, firstname, surname, email, dateOfBirth FROM "students" WHERE email= $1`,[req.body.email])
-    
-//     if(checkEmail.rowCount===0){
-//        // res.send("not found")
-//         const response = await db.query(`INSERT INTO "students" (firstname, surname, email, dateOfBirth) 
-//                                      Values ($1, $2, $3, $4)
-//                                      RETURNING *`, 
-//                                     [ req.body.firstname, req.body.surname, req.body.email, req.body.dateofbirth ])
-//         res.send(response.rows)
-//     }else{
-        
-//         res.send("email exit")
-//     }
-    
-// })
 
 studentRouter.post("/", async (req, res)=> {
     const response = await db.query(`INSERT INTO "reviews" (comment, rate, productid, createdat) 
