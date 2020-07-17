@@ -1,7 +1,13 @@
 const express = require("express")
 const db = require("../../db")
+const multer = require("multer");
+const fs = require("fs-extra");
+const router = express.Router();
 
-const router = express.Router()
+
+const path = require("path")
+const downloadPath = path.join(__dirname, "../../../public/products/img")
+const upload = multer()
 
 
 router.get("/", async (req, res) => {
@@ -70,5 +76,14 @@ router.delete("/:id", async (req, res) => {
 
   res.send("OK")
 })
+
+router.post("/upload", upload.array("file"), (req, res)=> {
+  const arrayImg = req.files.map(img =>
+      fs.writeFileSync(path.join(downloadPath, img.originalname), img.buffer)
+      )
+      Promise.all(arrayImg)
+      res.send("imgs was uploaded")
+})
+
 
 module.exports = router

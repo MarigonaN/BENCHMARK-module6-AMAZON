@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavDropdown, Navbar, Nav} from "react-bootstrap"
-
 class NavBar extends Component {
 
     render() {
@@ -17,7 +16,8 @@ class NavBar extends Component {
                             <NavDropdown.Item onClick={() => this.fetchCategory("watches")}>Watches</NavDropdown.Item>
                             <NavDropdown.Item onClick={() => this.fetchCategory("bikes")}>Bikes</NavDropdown.Item>
                         </NavDropdown>
-                        <a href="backoffice.jsx">BackOffice</a>
+                  
+                    
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

@@ -1,6 +1,7 @@
 const express = require("express");
 const listEndpoints = require("express-list-endpoints");
 const cors = require("cors");
+
 const productsRoute = require("./routes/products");
 const reviewsRoute = require("./routes/reviews");
 
@@ -11,11 +12,11 @@ const server = express();
 
 server.use(cors());
 server.use(express.json());
-server.use(express.static(join(__dirname, "../public")));
+server.use(express.static(join(__dirname, "../public/products/img")));
 
 server.use("/products", productsRoute);
 server.use("/reviews", reviewsRoute);
-
+server.use("/upload", productsRoute)
 
 server.use(notFound);
 server.use(badRequest);

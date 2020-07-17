@@ -3,8 +3,10 @@
     import ProductList from './components/ProductList';
     import ReviewList from './components/ReviewList';
     import NavBar from './components/NavBar';
+    import Backoffice from './components/Backoffice';
     import { Row, Col} from "react-bootstrap";
     import 'bootstrap/dist/css/bootstrap.min.css';
+
 
     export default class App extends Component {
       state = {
@@ -16,7 +18,7 @@
         return (
           <>
           <NavBar />
-        
+          <Backoffice />
              <h1 className="mt-3 mb-5 display-3 text-center">Products</h1>
             <Row>
            
