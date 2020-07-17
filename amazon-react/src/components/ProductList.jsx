@@ -20,7 +20,7 @@ class ProductList extends Component {
         )
     }
     componentDidMount = async ()=>{
-        const res = await fetch("http://localhost:3002/products")
+        const res = await fetch("http://localhost:3003/products")
      
        
         const products = await res.json()

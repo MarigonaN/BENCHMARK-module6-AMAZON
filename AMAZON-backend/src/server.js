@@ -1,22 +1,28 @@
-const express = require("express")
-const cors = require("cors")
-const dotenv = require("dotenv")
-dotenv.config()
-const db = require("./db")
-const productRouter = require("./routes/products")
-const reviewRouter = require("./routes/reviews")
-const listEndpoints = require("express-list-endpoints")
+const express = require("express");
+const listEndpoints = require("express-list-endpoints");
+const cors = require("cors");
+const productsRoute = require("./routes/products");
+const reviewsRoute = require("./routes/reviews");
 
-const server = express()
-server.use(cors())
-server.use(express.json())
+const { notFound, badRequest, generalError } = require("./errorhandlers");
+const { join } = require("path");
 
-server.get("/", (req, res)=> {
-    res.send("The server is running!")
-})
+const server = express();
 
-server.use("/products", productRouter)
-server.use("/reviews", reviewRouter)
+server.use(cors());
+server.use(express.json());
+server.use(express.static(join(__dirname, "../public")));
 
-console.log(listEndpoints(server))
-server.listen(process.env.PORT || 3456, () => console.log("Running on ", process.env.PORT || 3456))
+server.use("/products", productsRoute);
+server.use("/reviews", reviewsRoute);
+
+
+server.use(notFound);
+server.use(badRequest);
+server.use(generalError);
+
+console.log(listEndpoints(server));
+
+server.listen(process.env.PORT, () => {
+  console.log(`Server running on port: ${process.env.PORT}`);
+});

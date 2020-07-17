@@ -18,7 +18,7 @@ class ReviewList extends Component {
         )
     }
     componentDidMount = async ()=>{
-        const res = await fetch("http://localhost:3002/reviews")
+        const res = await fetch("http://localhost:3003/reviews")
        
         const reviews = await res.json()
         this.setState({

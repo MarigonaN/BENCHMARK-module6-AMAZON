@@ -30,6 +30,7 @@ router.post("/", async (req, res) => {
   res.send(response.rows[0])
 })
 
+
 router.put("/:id", async (req, res) => {
   try {
     let params = []
@@ -59,6 +60,7 @@ router.put("/:id", async (req, res) => {
     res.status(500).send(ex)
   }
 })
+
 
 router.delete("/:id", async (req, res) => {
   const response = await db.query(`DELETE FROM "products" WHERE _id= $1`, [req.params.id])
