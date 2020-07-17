@@ -13,7 +13,7 @@
       render() {
         const mystyle = {
           
-          backgroundColor: "#fce1f6",
+          backgroundColor: "#f7e9f4",
           padding: "10px",
           fontFamily: "Arial",
           fontSize: "15px"
