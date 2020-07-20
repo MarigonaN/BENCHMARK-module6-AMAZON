@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Col, Card, Container, Row } from "react-bootstrap"
+import { Col, Card, Container, Row, Button } from "react-bootstrap"
 
 class ProductListItem extends Component {
     render() {
@@ -20,6 +20,7 @@ class ProductListItem extends Component {
                                     <h5>Price:   {price}$</h5>
    
                                 </Card.Text>
+                                <Button variant="outline-dark">Add to Cart</Button>
                             </Card.Body>
                             <Card.Footer>
                                 <small className="text-muted">CreatedAt {createdat}</small><br></br>
